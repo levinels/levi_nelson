@@ -1,11 +1,6 @@
-# Use the correct base image
 FROM mcr.microsoft.com/devcontainers/universal:2
 
-# Install Node.js 16 (compatible with Vue CLI)
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
-    && apt-get install -y nodejs
-
-# Install Vue CLI
+# Install Vue CLI globally
 RUN npm install -g @vue/cli
 
 # Install Flask
