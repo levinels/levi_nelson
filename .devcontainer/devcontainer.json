@@ -1,23 +1,16 @@
 {
     "name": "Flask + Vue Dev Container",
-    "image": "mcr.microsoft.com/devcontainers/universal:2",
-    "features": {
-        "ghcr.io/devcontainers/features/node:1": {
-            "version": "16"
-        },
-        "ghcr.io/devcontainers/features/python:1": {
-            "version": "3.11"
-        }
-    },
+    "dockerFile": "Dockerfile",
+    "context": ".",
+    "forwardPorts": [5000, 8080],
+    "postCreateCommand": "npm install -g @vue/cli && pip3 install flask",
     "customizations": {
         "vscode": {
             "extensions": [
                 "ms-python.python",
                 "Vue.volar",
                 "esbenp.prettier-vscode"
-                ]
+            ]
         }
-    },
-    "forwardPorts": [5000, 8080],
-    "postCreateCommand": "npm install -g @vue/cli && pip3 install flask && node -v && npm -v && vue --version && python3 -c \"import flask; print(flask.__version__)\""
+    }
 }
