@@ -1,8 +1,13 @@
 {
     "name": "Flask + Vue Dev Container",
-    "build": {
-        "dockerfile": "Dockerfile",
-        "context": "."
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "16"
+        },
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "3.11"
+        }
     },
     "customizations": {
         "vscode": {
@@ -12,5 +17,6 @@
                 "esbenp.prettier-vscode"
             ]
         }
-    }
+    },
+    "forwardPorts": [5000, 8080]
 }
