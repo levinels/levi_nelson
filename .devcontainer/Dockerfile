@@ -1,11 +1,12 @@
-FROM mcr.microsoft.com/devcontainers/base:ubuntu
-# Install the xz-utils package
-RUN apt-get update 
+# Use the correct base image
+FROM mcr.microsoft.com/devcontainers/universal:2
 
-# Install Node.js (required for Vue)
-RUN sudo apt-get update && \
-    sudo apt-get install -y nodejs npm && \
-    sudo npm install -g @vue/cli
+# Install Node.js (latest LTS, required for Vue.js)
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs
 
-# Install Python dependencies for Flask
+# Install Vue CLI globally
+RUN npm install -g @vue/cli
+
+# Install Flask
 RUN pip3 install flask
