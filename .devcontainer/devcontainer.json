@@ -15,8 +15,8 @@
                 "ms-python.python",
                 "Vue.volar",
                 "esbenp.prettier-vscode"
-            ]
+                ]
         }
     },
-    "forwardPorts": [5000, 8080]
-}
+    "forwardPorts": [5000, 8080],
+    "postCreateCommand": "npm install -g @vue/cli && pip3 install flask && node -v && npm -v && vue --version && python3 -c \"import flask; print(flask.__version__)\""
